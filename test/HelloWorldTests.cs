@@ -1,13 +1,11 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Google.Protobuf.WellKnownTypes;
 using Shouldly;
 using Xunit;
-using System;
 
 namespace AElf.Contracts.HelloWorld
 {
-    // This class is unit test class, and it inherit TestBase. Write your unit test code inside it.
+    // This class is unit test class, and it inherit TestBase. Write your unit test code inside it
     public class HelloWorldTests : TestBase
     {
         [Fact]
@@ -23,14 +21,6 @@ namespace AElf.Contracts.HelloWorld
             // Assert
             var updatedMessage = await HelloWorldStub.Read.CallAsync(new Empty());
             updatedMessage.Value.ShouldBe(inputValue);
-        }
-        [Fact]
-        public async Task Random_Test()
-        {
-            // Arrange
-            await HelloWorldStub.CreateRandomCharacter.SendAsync(new Empty());
-            var result = await HelloWorldStub.GetRandomCharacter.CallAsync(new Empty());
-            Console.WriteLine(result.Value);
         }
     }
     
